@@ -69,8 +69,8 @@ class Assignment(base.Assignment):
     show_icons = True
     default_icon = 'action_icon.gif'
 
-    def __init__(self, title=u"", category=u"", show_icons=True, default_icon='action_icon.gif'):
-        self.ptitle = title
+    def __init__(self, ptitle=u"", category=u"", show_icons=True, default_icon='action_icon.gif'):
+        self.ptitle = ptitle
         self.category = category
         self.show_icons = show_icons
         self.default_icon = default_icon

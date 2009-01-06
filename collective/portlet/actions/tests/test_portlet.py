@@ -28,7 +28,7 @@ class TestPortlet(TestCase):
         return
 
     def test_interfaces(self):
-        portlet = actionsportlet.Assignment(title=u'actions', category=u'document', show_icons=True)
+        portlet = actionsportlet.Assignment(ptitle=u'actions', category=u'document', show_icons=True)
         self.failUnless(IPortletAssignment.providedBy(portlet))
         self.failUnless(IPortletDataProvider.providedBy(portlet.data))
         return
@@ -44,7 +44,7 @@ class TestPortlet(TestCase):
         addview = mapping.restrictedTraverse('+/' + portlet.addview)
 
         data = {
-            'title': u"Actions",
+            'ptitle': u"Actions",
             'category': u'document',
             'show_icons': True}
         addview.createAndAdd(data=data)
@@ -58,7 +58,7 @@ class TestPortlet(TestCase):
         mapping = PortletAssignmentMapping()
         request = self.folder.REQUEST
 
-        mapping['foo'] = actionsportlet.Assignment(title=u'actions', category=u'document', show_icons=True)
+        mapping['foo'] = actionsportlet.Assignment(ptitle=u'actions', category=u'document', show_icons=True)
         editview = getMultiAdapter((mapping['foo'], request), name='edit')
         self.failUnless(isinstance(editview, actionsportlet.EditForm))
         return
@@ -70,7 +70,7 @@ class TestPortlet(TestCase):
         manager = getUtility(IPortletManager, name='plone.rightcolumn',
                              context=self.portal)
 
-        assignment = actionsportlet.Assignment(title=u'actions', category=u'document', show_icons=True)
+        assignment = actionsportlet.Assignment(ptitle=u'actions', category=u'document', show_icons=True)
 
         renderer = getMultiAdapter(
             (context, request, view, manager, assignment), IPortletRenderer)
@@ -92,13 +92,13 @@ class TestRenderer(TestCase):
         manager = manager or getUtility(
             IPortletManager, name='plone.rightcolumn', context=self.portal)
 
-        assignment = assignment or actionsportlet.Assignment(title=u'actions', category=u'site_actions', show_icons=True)
+        assignment = assignment or actionsportlet.Assignment(ptitle=u'actions', category=u'site_actions', show_icons=True)
         return getMultiAdapter((context, request, view, manager, assignment),
                                IPortletRenderer)
 
     def test_render(self):
         r = self.renderer(context=self.portal,
-                          assignment=actionsportlet.Assignment(title=u'actions', category=u'site_actions', show_icons=True))
+                          assignment=actionsportlet.Assignment(ptitle=u'actions', category=u'site_actions', show_icons=True))
         r = r.__of__(self.folder)
         r.update()
         output = r.actionLinks()
@@ -113,7 +113,7 @@ class TestRenderer(TestCase):
     def test_render_woicon(self):
         """Without icons"""
         r = self.renderer(context=self.portal,
-                          assignment=actionsportlet.Assignment(title=u'actions', category=u'site_actions', show_icons=False))
+                          assignment=actionsportlet.Assignment(ptitle=u'actions', category=u'site_actions', show_icons=False))
         r = r.__of__(self.folder)
         r.update()
         output = r.actionLinks()

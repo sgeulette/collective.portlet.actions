@@ -87,8 +87,13 @@ Home page
 You may find further informations, a tracker and support resources from the home
 page at plone.org.
 
-At plone.org: http://plone.org/products/collective-portlet-actions
-At Pypi: http://pypi.python.org/collective.portlet.actions
+* At plone.org: http://plone.org/products/collective-portlet-actions
+* At Pypi: http://pypi.python.org/collective.portlet.actions
+
+Subversion repository
+=====================
+
+https://svn.plone.org/svn/collective/collective.portlet.actions
 
 Credits
 =======
