@@ -20,6 +20,9 @@ collective.portlet.actions requires Plone 3.x. It has been tested with Plone
 Install
 =======
 
+Usual install
+-------------
+
 collective.portlet.actions is a Python egg with a ZCML slug, such you just need
 to add these lines in your zc.buildout config file: ::
 
@@ -37,6 +40,11 @@ to add these lines in your zc.buildout config file: ::
 Then re-run your buildout config.
 
 See ``docs/INSTALL.txt`` for other installation methods.
+
+Development
+-----------
+
+Please read the comments on top of ``buildout.cfg`` that comes with the subversion checkout.
 
 Add a portlet
 =============
