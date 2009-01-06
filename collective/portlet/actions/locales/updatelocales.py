@@ -15,7 +15,7 @@
 ## along with this program; see the file LICENSE.txt. If not, write to the
 ## Free Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 
-# $Id: updatelocales.py 36 2008-09-07 09:08:55Z glenfant $
+# $Id$
 """
 i18n files maintenance utility. Please read the README.txt beside this
 file.  Portions of this code have been stolen from
