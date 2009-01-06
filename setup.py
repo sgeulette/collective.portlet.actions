@@ -7,7 +7,7 @@ setup(
     name='collective.portlet.actions',
     version=version,
     description="A portlet that provides the links of an action category",
-    long_description=(open("README.txt").read().strip() + "\n" +
+    long_description=(open("README.txt").read().strip() + "\n\n" +
                       open(os.path.join("docs", "HISTORY.txt")).read().strip()),
     # Get more strings from http://www.python.org/pypi?%3Aaction=list_classifiers
     classifiers=[

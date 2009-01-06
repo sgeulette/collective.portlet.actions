@@ -110,5 +110,4 @@ Translations
 See ``collective/portlet/actions/locales/README.txt`` if you need to translate
 this component into another language.
 
-French (fr): `Gilles Lenfant <mailto:gilles DOT lenfant AT ingeniweb DOT com>`_
-
+* French (fr): `Gilles Lenfant <mailto:gilles DOT lenfant AT ingeniweb DOT com>`_
