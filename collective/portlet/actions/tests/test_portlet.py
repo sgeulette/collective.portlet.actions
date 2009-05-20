@@ -121,6 +121,36 @@ class TestRenderer(TestCase):
         self.failUnless(first['icon'] is None, "We should not have an icon")
         return
 
+    def test_muptiplePortlets(self):
+        """This test ensures that we can add more than one action portlet on
+        the same page with different action categories and show_icons option
+        and those portlets will work as they are intended to work.
+        
+        This test was written due to bug caused by caching actionLinks portlet
+        renderer's method
+        """
+        # let's create two different portlet renderers for the same context
+        # thus for the same REQUEST, plone memoize uses REQUEST to cache data
+        r1 = self.renderer(assignment=actionsportlet.Assignment(ptitle=u'tabs', category=u'portal_tabs', show_icons=True))
+        r1 = r1.__of__(self.folder)
+        r1.update()
+        links1 = r1.actionLinks()
+        r2 = self.renderer(assignment=actionsportlet.Assignment(ptitle=u'site actions', category=u'site_actions', show_icons=False))
+        r2 = r2.__of__(self.folder)
+        r2.update()
+        links2 = r2.actionLinks()
+        
+        # check the portal_tabs links
+        self.assertEquals(len(links1), 1)
+        self.assertEquals(links1[0]['title'], u'Home')
+        self.failIf(links1[0]['icon'] is None)
+        
+        # now check the site_actions links
+        # this was failing until the caching of actionLinks method was fixed
+        self.assertEquals(len(links2), 4)
+        self.assertEquals(links2[0]['title'], u'Site Map')
+        self.assertEquals(links2[0]['url'], 'http://nohost/plone/sitemap')
+        self.assertEquals(links2[0]['icon'], None)
 
 def test_suite():
     from unittest import TestSuite, makeSuite
