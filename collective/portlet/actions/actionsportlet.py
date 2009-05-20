@@ -102,19 +102,19 @@ class Renderer(base.Renderer):
 
         return self.data.ptitle
 
-
-    @pm_view.memoize
     def actionLinks(self):
         """Features of action links"""
+        return self.cachedLinks(self.data.category, self.data.default_icon,
+                                self.data.show_icons)
 
-        actions_category = self.data.category
-        default_icon = self.data.default_icon
+    @pm_view.memoize
+    def cachedLinks(self, actions_category, default_icon, show_icons):
         context_state = getMultiAdapter((aq_inner(self.context), self.request),
                                         name=u'plone_context_state')
         actions = context_state.actions().get(actions_category, [])
 
         # Finding method for icons
-        if self.data.show_icons:
+        if show_icons:
             portal_actionicons = getToolByName(self.context, 'portal_actionicons')
             def render_icon(category, action, default):
                 if action['icon']:
