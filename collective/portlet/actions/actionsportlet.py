@@ -29,7 +29,7 @@ class IActionsPortlet(IPortletDataProvider):
         description=_(u'help_title',
                       default=u"Displayed title of this portlet"),
         default=u"",
-        required=True)
+        required=False)
 
     category = schema.Choice(
         title=_(u'label_actions_category',
@@ -81,7 +81,7 @@ class Assignment(base.Assignment):
         """This property is used to give the title of the portlet in the
         "manage portlets" screen.
         """
-        return _(u"Actions portlet") + ' "%s"' % self.ptitle
+        return _(u"Actions portlet") + ' "%s"' % (self.ptitle or self.category)
 
 
 class Renderer(base.Renderer):
@@ -117,7 +117,7 @@ class Renderer(base.Renderer):
         if show_icons:
             portal_actionicons = getToolByName(self.context, 'portal_actionicons')
             def render_icon(category, action, default):
-                if action['icon']:
+                if action.has_key('icon') and action['icon']:
                     # We have an icon *in* this action
                     return action['icon']
                 # Otherwise we look for an icon in portal_actionicons
@@ -129,6 +129,24 @@ class Renderer(base.Renderer):
 
         # Building the result as list of dicts
         result = []
+        portal_properties = getToolByName(self.context, 'portal_properties')
+        site_properties = getattr(portal_properties, 'site_properties')
+        
+        if actions_category=="portal_tabs":
+            portal_tabs_view = getMultiAdapter((self.context, self.context.REQUEST), name='portal_tabs_view')
+            actions = portal_tabs_view.topLevelTabs(actions=context_state.actions())
+            for action in actions:
+                link = {
+                    'url': action['url'],
+                    'title': action['name'],
+                    'icon': render_icon(
+                        actions_category,
+                        action,
+                        default=default_icon)
+                    }
+                result.append(link)
+            return result
+        
         for action in actions:
             if not (action['available']
                     and action['visible']
