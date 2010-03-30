@@ -4,8 +4,8 @@ Changelog
 
 Please use following format for further changes (latest first):
 
-1.1.0 (future)
-==============
+1.1.0
+=====
 
 * Fixing tests and adding new tests for portal_tabs
   [glenfant]
