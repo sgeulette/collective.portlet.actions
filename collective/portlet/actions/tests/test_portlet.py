@@ -166,6 +166,7 @@ class TestRenderer(TestCase):
                 ptitle=u'actions', category=u'portal_tabs', show_icons=True))
         r = r.__of__(self.folder)
         r.update()
+        output = r.actionLinks()
 
         # Have our expected tabs ?
         expected = set([u'Home', u'Users', u'News', u'Events'])

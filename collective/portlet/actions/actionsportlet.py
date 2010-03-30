@@ -131,6 +131,7 @@ class Renderer(base.Renderer):
         result = []
 
         if actions_category=="portal_tabs":
+            # Special case for portal_tabs (we rely on content in Plone root)
             portal_tabs_view = getMultiAdapter(
                 (self.context, self.context.REQUEST), name='portal_tabs_view')
             actions = portal_tabs_view.topLevelTabs(actions=actions)
