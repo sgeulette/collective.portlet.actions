@@ -111,7 +111,7 @@ class Renderer(base.Renderer):
     def cachedLinks(self, actions_category, default_icon, show_icons):
         context_state = getMultiAdapter((aq_inner(self.context), self.request),
                                         name=u'plone_context_state')
-        actions = context_state.actions().get(actions_category, [])
+        actions = context_state.actions()
 
         # Finding method for icons
         if show_icons:
@@ -129,12 +129,11 @@ class Renderer(base.Renderer):
 
         # Building the result as list of dicts
         result = []
-        portal_properties = getToolByName(self.context, 'portal_properties')
-        site_properties = getattr(portal_properties, 'site_properties')
 
         if actions_category=="portal_tabs":
-            portal_tabs_view = getMultiAdapter((self.context, self.context.REQUEST), name='portal_tabs_view')
-            actions = portal_tabs_view.topLevelTabs(actions=context_state.actions())
+            portal_tabs_view = getMultiAdapter(
+                (self.context, self.context.REQUEST), name='portal_tabs_view')
+            actions = portal_tabs_view.topLevelTabs(actions=actions)
             for action in actions:
                 link = {
                     'url': action['url'],
@@ -145,23 +144,24 @@ class Renderer(base.Renderer):
                         default=default_icon)
                     }
                 result.append(link)
-            return result
 
-        for action in actions:
-            if not (action['available']
-                    and action['visible']
-                    and action['allowed']
-                    and action['url']):
-                continue
-            link = {
-                'url': action['url'],
-                'title': action['title'],
-                'icon': render_icon(
-                    actions_category,
-                    action,
-                    default=default_icon)
-                }
-            result.append(link)
+        else:
+            actions = actions.get(actions_category, [])
+            for action in actions:
+                if not (action['available']
+                        and action['visible']
+                        and action['allowed']
+                        and action['url']):
+                    continue
+                link = {
+                    'url': action['url'],
+                    'title': action['title'],
+                    'icon': render_icon(
+                        actions_category,
+                        action,
+                        default=default_icon)
+                    }
+                result.append(link)
         return result
 
 

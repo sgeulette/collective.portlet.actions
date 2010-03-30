@@ -2,7 +2,7 @@
 collective.portlet.actions
 ==========================
 
-By `Ingeniweb <http://www.ingeniweb.com>`_.
+By `Alter Way Solutions <http://www.alterway.fr>`_.
 
 Show in a portlet of a Plone site the links and (maybe translated) titles of the
 actions of a selected category.
@@ -37,6 +37,9 @@ to add these lines in your zc.buildout config file: ::
     ...
     collective.portlet.actions
 
+As of Plone 3.2, you don't need to add ``collective.portlet.actions`` to the
+``zcml`` option.
+
 Then re-run your buildout config.
 
 See ``docs/INSTALL.txt`` for other installation methods.
@@ -44,7 +47,8 @@ See ``docs/INSTALL.txt`` for other installation methods.
 Development
 -----------
 
-Please read the comments on top of ``buildout.cfg`` that comes with the subversion checkout.
+Please read the comments on top of ``buildout.cfg`` that comes with the
+subversion checkout.
 
 Add a portlet
 =============
@@ -88,7 +92,8 @@ You may find further informations, a tracker and support resources from the home
 page at plone.org.
 
 * At plone.org: http://plone.org/products/collective-portlet-actions
-* At Pypi: http://pypi.python.org/collective.portlet.actions
+
+* At Pypi: http://pypi.python.org/pypi/collective.portlet.actions
 
 Subversion repository
 =====================
@@ -101,7 +106,9 @@ Credits
 Development
 -----------
 
-* Main developper: `Gilles Lenfant <mailto:gilles DOT lenfant AT ingeniweb DOT com>`_
+* Main developper: `Gilles Lenfant <mailto:gilles DOT lenfant AT alterway DOT
+  fr>`_
+
 * Sponsor: `EDF <http://www.edf.fr>`_
 
 Translations
@@ -110,4 +117,4 @@ Translations
 See ``collective/portlet/actions/locales/README.txt`` if you need to translate
 this component into another language.
 
-* French (fr): `Gilles Lenfant <mailto:gilles DOT lenfant AT ingeniweb DOT com>`_
+* French (fr): `Gilles Lenfant <mailto:gilles DOT lenfant AT alterway DOT fr>`_
