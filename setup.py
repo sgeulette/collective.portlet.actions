@@ -17,7 +17,7 @@ setup(
     ],
     keywords='plone portlet',
     author='Gilles Lenfant',
-    author_email='gilles.lenfant@ingeniweb.com',
+    author_email='gilles.lenfant@alterway.fr',
     url='http://plone.org/products/collective-portlet-actions',
     license='GPL',
     packages=find_packages(exclude=['ez_setup']),
