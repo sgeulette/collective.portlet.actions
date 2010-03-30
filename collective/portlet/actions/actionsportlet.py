@@ -131,7 +131,7 @@ class Renderer(base.Renderer):
         result = []
         portal_properties = getToolByName(self.context, 'portal_properties')
         site_properties = getattr(portal_properties, 'site_properties')
-        
+
         if actions_category=="portal_tabs":
             portal_tabs_view = getMultiAdapter((self.context, self.context.REQUEST), name='portal_tabs_view')
             actions = portal_tabs_view.topLevelTabs(actions=context_state.actions())
@@ -146,7 +146,7 @@ class Renderer(base.Renderer):
                     }
                 result.append(link)
             return result
-        
+
         for action in actions:
             if not (action['available']
                     and action['visible']
