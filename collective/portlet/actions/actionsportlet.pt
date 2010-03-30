@@ -1,6 +1,5 @@
 <dl class="portlet portletActionsPortlet"
     i18n:domain="collective.portlet.actions">
-
   <tal:comment replace="nothing">
     ###############
     Actions portlet
@@ -41,5 +40,4 @@
     &nbsp;
     <span class="portletBottomRight"></span>
   </dd>
-
 </dl>
