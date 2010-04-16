@@ -81,9 +81,7 @@ class Assignment(base.Assignment):
         """This property is used to give the title of the portlet in the
         "manage portlets" screen.
         """
-        from Products.CMFPlone import PloneMessageFactory as _plone_translate
-        return _plone_translate(u"Actions portlet") + ' "%s"' % (self.ptitle or self.category)
-        #return _(u"Actions portlet") + ' "%s"' % (self.ptitle or self.category)
+        return _(u"Actions portlet") + ' "%s"' % (self.ptitle or self.category)
 
 
 class Renderer(base.Renderer):
