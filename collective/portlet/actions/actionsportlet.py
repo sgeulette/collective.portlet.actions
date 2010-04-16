@@ -208,7 +208,7 @@ class ActionCategoriesVocabulary(object):
         portal_actions = getToolByName(context, 'portal_actions')
 
         # Building the list of action categories
-        categories = portal_actions.listFilteredActionsFor(context).keys()
+        categories = portal_actions.objectIds()
         categories.sort()
         return SimpleVocabulary([SimpleTerm(cat, title=cat) for cat in categories])
 
