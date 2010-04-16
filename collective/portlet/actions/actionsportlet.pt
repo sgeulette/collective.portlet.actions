@@ -20,9 +20,9 @@
     <table>
       <tr tal:repeat="link view/actionLinks"
           style="vertical-align: top">
-        <td tal:define="icon link/icon"
-            tal:condition="icon">
+        <td tal:define="icon link/icon">
           <img src="#"
+               tal:condition="icon"
                tal:attributes="src string:$portal_url/$icon" />
         </td>
         <td>
