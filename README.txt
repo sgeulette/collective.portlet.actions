@@ -118,3 +118,4 @@ See ``collective/portlet/actions/locales/README.txt`` if you need to translate
 this component into another language.
 
 * French (fr): `Gilles Lenfant <mailto:gilles DOT lenfant AT alterway DOT fr>`_
+* Italian (it): `Davide Moro <mailto:davide DOT moro AT redomino DOT com>`_
