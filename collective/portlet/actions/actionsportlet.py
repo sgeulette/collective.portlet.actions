@@ -92,7 +92,6 @@ class Renderer(base.Renderer):
     @property
     def available(self):
         """Override base class"""
-
         return bool(self.actionLinks())
 
 
@@ -121,7 +120,12 @@ class Renderer(base.Renderer):
                     # We have an icon *in* this action
                     return action['icon']
                 # Otherwise we look for an icon in portal_actionicons
-                return portal_actionicons.renderActionIcon(category, action['id'], default)
+                if category != 'object_buttons':
+                    return portal_actionicons.renderActionIcon(category, action['id'], default)
+                else:
+                    # object_buttons
+                    plone_utils = getToolByName(self.context, 'plone_utils')
+                    return plone_utils.getIconFor(category, action['id'], None)
         else:
             def render_icon(category, action_id, default):
                 # We don't show icons whatever
@@ -147,7 +151,11 @@ class Renderer(base.Renderer):
                 result.append(link)
 
         else:
-            actions = actions.get(actions_category, [])
+            if actions_category == 'object_buttons':
+                actions_tool = getMultiAdapter((aq_inner(self.context), self.context.request), name=u'plone_tools').actions()
+                actions = actions_tool.listActionInfos(object=aq_inner(self.context), categories=(actions_category,))
+            else:
+                actions = actions.get(actions_category, [])
             for action in actions:
                 if not (action['available']
                         and action['visible']
