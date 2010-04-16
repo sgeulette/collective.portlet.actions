@@ -4,6 +4,18 @@ Changelog
 
 Please use following format for further changes (latest first):
 
+1.1.0-dev
+=========
+
+* Added new tests for object_buttons category
+  [davidemoro]
+
+* Fixed support for object_buttons category
+  [davidemoro]
+
+* Added italian translation
+  [davidemoro]
+
 1.1.0
 =====
 
