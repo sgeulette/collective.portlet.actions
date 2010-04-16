@@ -174,6 +174,41 @@ class TestRenderer(TestCase):
         self.failUnlessEqual(got, expected)
         return
 
+    def test_object_buttons(self):
+        """Special stuff for the object_buttons category
+        """
+        r = self.renderer(
+            context=self.portal['news'],
+            assignment=actionsportlet.Assignment(
+                ptitle=u'actions', category=u'object_buttons', show_icons=False))
+        r = r.__of__(self.folder)
+        r.update()
+        output = r.actionLinks()
+
+        # Have our expected tabs ?
+        expected = set([u'Cut', u'Copy', u'Rename', u'Delete'])
+        got = set([unicode(link['title']) for link in output])
+        self.failUnlessEqual(got, expected)
+        return
+
+    def test_object_buttons_with_icons(self):
+        """Special stuff for the object_buttons category (bug in render_icons)
+        """
+        r = self.renderer(
+            context=self.portal['news'],
+            assignment=actionsportlet.Assignment(
+                ptitle=u'actions', category=u'object_buttons', show_icons=True))
+        r = r.__of__(self.folder)
+        r.update()
+        self.failUnless(r.actionLinks)
+        output = r.actionLinks()
+
+        # Have our expected tabs ?
+        expected = set([u'Cut', u'Copy', u'Rename', u'Delete'])
+        got = set([unicode(link['title']) for link in output])
+        self.failUnlessEqual(got, expected)
+        return
+
 
 def test_suite():
     from unittest import TestSuite, makeSuite
