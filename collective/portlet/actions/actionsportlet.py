@@ -125,7 +125,7 @@ class Renderer(base.Renderer):
                 else:
                     # object_buttons
                     plone_utils = getToolByName(self.context, 'plone_utils')
-                    return plone_utils.getIconFor(category, action['id'], None)
+                    return plone_utils.getIconFor(category, action['id'], default)
         else:
             def render_icon(category, action_id, default):
                 # We don't show icons whatever
