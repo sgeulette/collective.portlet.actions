@@ -120,7 +120,7 @@ class Renderer(base.Renderer):
                     # We have an icon *in* this action
                     return action['icon']
                 # Otherwise we look for an icon in portal_actionicons
-                if category != 'object_buttons':
+                if category in ['document_actions', 'site_actions', 'folder_buttons', 'object', 'portal_tabs', 'user',]:
                     return portal_actionicons.renderActionIcon(category, action['id'], default)
                 else:
                     # object_buttons
