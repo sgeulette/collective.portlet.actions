@@ -1,8 +1,8 @@
-##
+# #
 msgid ""
 msgstr ""
 "Project-Id-Version: collective.portlet.actions 1.0\n"
-"POT-Creation-Date: 2008-12-30 16:16+0000\n"
+"POT-Creation-Date: 2010-04-16 12:21+0000\n"
 "PO-Revision-Date: 2008-12-30 16:08+0000\n"
 "Last-Translator: Davide Moro <davide.moro@redomino.com>\n"
 "Language-Team: Redomino <info@redomino.com>\n"
@@ -20,7 +20,7 @@ msgid "Actions portlet"
 msgstr "Portlet azioni"
 
 #. Default: "Add actions portlet"
-#: collective.portlet.actions/collective/portlet/actions/actionsportlet.py:157
+#: collective.portlet.actions/collective/portlet/actions/actionsportlet.py:184
 msgid "heading_add_actions_portlet"
 msgstr "Aggiungi una portlet azioni"
 
@@ -30,7 +30,7 @@ msgid "help_actions_category"
 msgstr "Seleziona una categoria di azioni"
 
 #. Default: "An action portlet displays actions from a category"
-#: collective.portlet.actions/collective/portlet/actions/actionsportlet.py:159
+#: collective.portlet.actions/collective/portlet/actions/actionsportlet.py:186
 msgid "help_add_actions_portlet"
 msgstr "Una portlet azioni visualizza le azioni di una specifica categoria."
 

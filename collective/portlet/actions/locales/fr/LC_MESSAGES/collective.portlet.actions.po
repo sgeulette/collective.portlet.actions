@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: collective.portlet.actions 1.0\n"
-"POT-Creation-Date: 2008-12-30 16:16+0000\n"
+"POT-Creation-Date: 2010-04-16 12:21+0000\n"
 "PO-Revision-Date: 2008-12-30 16:08+0000\n"
 "Last-Translator: Gilles Lenfant <gilles.lenfant@ingeniweb.com>\n"
 "Language-Team: Inngeniweb <support@ingeniweb.com>\n"
@@ -22,7 +22,7 @@ msgid "Actions portlet"
 msgstr "Portlet d'actions"
 
 #. Default: "Add actions portlet"
-#: collective.portlet.actions/collective/portlet/actions/actionsportlet.py:157
+#: collective.portlet.actions/collective/portlet/actions/actionsportlet.py:184
 msgid "heading_add_actions_portlet"
 msgstr "Ajouter une portlet d'actions"
 
@@ -32,7 +32,7 @@ msgid "help_actions_category"
 msgstr "Sélectionnez une catégorie d'actions."
 
 #. Default: "An action portlet displays actions from a category"
-#: collective.portlet.actions/collective/portlet/actions/actionsportlet.py:159
+#: collective.portlet.actions/collective/portlet/actions/actionsportlet.py:186
 msgid "help_add_actions_portlet"
 msgstr "Une portlet d'actions affiche les liens des actions d'une catégorie."
 

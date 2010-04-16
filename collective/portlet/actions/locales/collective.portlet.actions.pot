@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: collective.portlet.actions 1.0\n"
-"POT-Creation-Date: 2008-12-30 16:16+0000\n"
+"POT-Creation-Date: 2010-04-16 12:21+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,7 +22,7 @@ msgid "Actions portlet"
 msgstr ""
 
 #. Default: "Add actions portlet"
-#: collective.portlet.actions/collective/portlet/actions/actionsportlet.py:157
+#: collective.portlet.actions/collective/portlet/actions/actionsportlet.py:184
 msgid "heading_add_actions_portlet"
 msgstr ""
 
@@ -32,7 +32,7 @@ msgid "help_actions_category"
 msgstr ""
 
 #. Default: "An action portlet displays actions from a category"
-#: collective.portlet.actions/collective/portlet/actions/actionsportlet.py:159
+#: collective.portlet.actions/collective/portlet/actions/actionsportlet.py:186
 msgid "help_add_actions_portlet"
 msgstr ""
 
