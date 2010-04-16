@@ -1,4 +1,5 @@
 <dl class="portlet portletActionsPortlet"
+    tal:define="portal_url context/@@plone_portal_state/portal_url;"
     i18n:domain="collective.portlet.actions">
   <tal:comment replace="nothing">
     ###############
@@ -22,7 +23,7 @@
         <td tal:define="icon link/icon"
             tal:condition="icon">
           <img src="#"
-               tal:replace="structure icon" />
+               tal:attributes="src string:$portal_url/$icon" />
         </td>
         <td>
           <a href="#"
