@@ -16,28 +16,20 @@
     <span class="portletTopRight"></span>
   </dt>
 
-  <dd class="portletItem odd">
-    <table>
-      <tr tal:repeat="link view/actionLinks"
-          style="vertical-align: top">
-        <td tal:define="icon link/icon">
-          <img src="#"
-               tal:condition="icon"
-               tal:attributes="src string:$portal_url/$icon" />
-        </td>
-        <td>
-          <a href="#"
-             tal:attributes="href link/url"
-             tal:content="link/title">
-            Action
-          </a>
-        </td>
-      </tr>
-    </table>
+  <tal:loop tal:repeat="link view/actionLinks">
+  <dd class="portletItem odd"
+      tal:define="odd_class python:repeat['link'].even() and 'odd' or 'even';
+                  icon link/icon;
+                  icon_url python:icon and (str(portal_url)+'/'+str(icon)) or '';"
+      tal:attributes="class string:portletItem ${odd_class};">
+    <a href="#"
+       tal:attributes="href link/url;">
+      <span tal:content="link/title"
+            tal:attributes="style string:background-image:url(${icon_url});;">
+        Action
+      </span>
+    </a>
   </dd>
-  <dd class="portletFooter">
-    <span class="portletBottomLeft"></span>
-    &nbsp;
-    <span class="portletBottomRight"></span>
-  </dd>
+  </tal:loop>
+
 </dl>
