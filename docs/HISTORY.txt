@@ -7,6 +7,12 @@ Please use following format for further changes (latest first):
 1.1.0-dev
 =========
 
+* Replace html table by portlet items and set action icons as backgrounds of each action link
+  [jriboux]
+
+* Plone 4 : Retreive actions list in a plone 4 compatible way and update tests to work on plone 4
+  [jriboux]
+
 * Added new tests for object_buttons category
   [davidemoro]
 
