@@ -12,6 +12,8 @@ from collective.portlet.actions import actionsportlet
 
 from collective.portlet.actions.tests.base import TestCase
 
+from Products.CMFCore.utils import getToolByName
+
 
 class TestPortlet(TestCase):
 
@@ -97,17 +99,24 @@ class TestRenderer(TestCase):
                                IPortletRenderer)
 
     def test_render(self):
+        migtool = getToolByName(self.portal, 'portal_migration')
+
         r = self.renderer(context=self.portal,
                           assignment=actionsportlet.Assignment(ptitle=u'actions', category=u'site_actions', show_icons=True))
         r = r.__of__(self.folder)
         r.update()
         output = r.actionLinks()
-        self.failUnlessEqual(len(output), 4)
+
+        if int(migtool.getInstanceVersion()[0]) >= 4:
+            self.failUnlessEqual(len(output), 3)
+        else:
+            self.failUnlessEqual(len(output), 4)
 
         first = output[0]
         self.failUnlessEqual(first['url'], 'http://nohost/plone/sitemap')
         self.failUnless(first['icon'] is not None, "We should have an icon")
         self.failUnlessEqual(first['title'], u"Site Map")
+
         return
 
     def test_render_woicon(self):
@@ -131,6 +140,8 @@ class TestRenderer(TestCase):
         This test was written due to bug caused by caching actionLinks portlet
         renderer's method
         """
+        migtool = getToolByName(self.portal, 'portal_migration')
+
         # let's create two different portlet renderers for the same context
         # thus for the same REQUEST, plone memoize uses REQUEST to cache data
         r1 = self.renderer(assignment=actionsportlet.Assignment(
@@ -150,7 +161,10 @@ class TestRenderer(TestCase):
 
         # now check the site_actions links
         # this was failing until the caching of actionLinks method was fixed
-        self.assertEquals(len(links2), 4)
+        if int(migtool.getInstanceVersion()[0]) >= 3:
+            self.assertEquals(len(links2), 3)
+        else:
+            self.assertEquals(len(links2), 4)
         self.assertEquals(links2[0]['title'], u'Site Map')
         self.assertEquals(links2[0]['url'], 'http://nohost/plone/sitemap')
         self.assertEquals(links2[0]['icon'], None)
