@@ -8,7 +8,7 @@
     $Id$
   </tal:comment>
 
-  <dt class="portletHeader">
+  <dt class="portletHeader" tal:condition="view/showTitle">
     <span class="portletTopLeft"></span>
     <span tal:condition="view/title" tal:replace="view/title">
       Title

@@ -7,6 +7,9 @@ Please use following format for further changes (latest first):
 1.1.0-dev
 =========
 
+* Add possibility to hide portlet title
+  [jriboux]
+
 * Replace html table by portlet items and set action icons as backgrounds of each action link
   [jriboux]
 

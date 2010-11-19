@@ -31,6 +31,14 @@ class IActionsPortlet(IPortletDataProvider):
         default=u"",
         required=False)
 
+    show_title = schema.Bool(
+        title=_(u'label_show_title',
+                default=u"Show title"),
+        description=_(u'help_show_title',
+                      default=u"Show title of this portlet."),
+        required=True,
+        default=True)
+
     category = schema.Choice(
         title=_(u'label_actions_category',
                 default=u"Actions category"),
@@ -65,12 +73,14 @@ class Assignment(base.Assignment):
     implements(IActionsPortlet)
 
     ptitle = u""
+    show_title = True
     category = u""
     show_icons = True
     default_icon = 'action_icon.gif'
 
-    def __init__(self, ptitle=u"", category=u"", show_icons=True, default_icon='action_icon.gif'):
+    def __init__(self, ptitle=u"", show_title=True, category=u"", show_icons=True, default_icon='action_icon.gif'):
         self.ptitle = ptitle
+        self.show_title = show_title
         self.category = category
         self.show_icons = show_icons
         self.default_icon = default_icon
@@ -100,6 +110,11 @@ class Renderer(base.Renderer):
         """Portlet title"""
 
         return self.data.ptitle
+
+    @property
+    def showTitle(self):
+        """Show portlet title"""
+        return self.data.show_title
 
     def actionLinks(self):
         """Features of action links"""
