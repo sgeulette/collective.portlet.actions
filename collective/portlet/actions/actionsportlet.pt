@@ -19,9 +19,11 @@
   <tal:loop tal:repeat="link view/actionLinks">
   <dd class="portletItem odd"
       tal:define="odd_class python:repeat['link'].even() and 'odd' or 'even';
+                  first_class python:repeat['link'].start and 'first' or '';
+                  last_class python:repeat['link'].end and 'last' or '';
                   icon nocall:link/icon;
                   icon_url icon/absolute_url;"
-      tal:attributes="class string:portletItem ${odd_class};">
+      tal:attributes="class string:portletItem ${odd_class} ${first_class} ${last_class};">
     <a href="#"
        tal:attributes="href link/url;">
       <span tal:content="link/title"
