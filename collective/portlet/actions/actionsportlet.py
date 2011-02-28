@@ -141,6 +141,7 @@ class Renderer(base.Renderer):
             actions = portal_tabs_view.topLevelTabs(actions=actions)
             for action in actions:
                 link = {
+                    'id':action['id'],
                     'url': action['url'],
                     'title': action['name'],
                     'icon': render_icon(
@@ -163,6 +164,7 @@ class Renderer(base.Renderer):
                         and action['url']):
                     continue
                 link = {
+                    'id':action['id'],                  
                     'url': action['url'],
                     'title': action['title'],
                     'icon': render_icon(
