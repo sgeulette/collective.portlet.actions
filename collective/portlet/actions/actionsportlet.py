@@ -6,7 +6,9 @@ from Acquisition import aq_inner
 from zope.interface import implements
 from zope import schema
 from zope.formlib import form
-from zope.app.schema.vocabulary import IVocabularyFactory
+#from zope.app.schema.vocabulary import IVocabularyFactory
+from zope.schema.interfaces import IVocabularyFactory
+
 from zope.schema.vocabulary import SimpleVocabulary
 from zope.schema.vocabulary import SimpleTerm
 from zope.component import getMultiAdapter
