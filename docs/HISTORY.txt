@@ -7,6 +7,15 @@ Please use following format for further changes (latest first):
 1.1.0-dev
 =========
 
+* Fix link's background image when "Show icons" is not checked
+  [sylvainb]
+
+* For Plone 4.1 we need to import CMF core permissions in configure.zcml
+  [sylvainb]
+
+* Update i18n files and add missing french translations
+  [sylvainb]
+
 * Add possibility to hide portlet title
   [jriboux]
 

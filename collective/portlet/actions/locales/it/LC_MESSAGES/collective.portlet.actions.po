@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: collective.portlet.actions 1.0\n"
-"POT-Creation-Date: 2010-04-16 12:21+0000\n"
+"POT-Creation-Date: 2011-09-06 12:21+0000\n"
 "PO-Revision-Date: 2008-12-30 16:08+0000\n"
 "Last-Translator: Davide Moro <davide.moro@redomino.com>\n"
 "Language-Team: Redomino <info@redomino.com>\n"
@@ -15,57 +15,67 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: collective.portlet.actions\n"
 
-#: collective.portlet.actions/collective/portlet/actions/actionsportlet.py:84
+#: /Users/sbo/Documents/makina/projets/plonebru/cirb_plonebru_buildout/devel/collective.portlet.actions/collective/portlet/actions/actionsportlet.py:96
 msgid "Actions portlet"
 msgstr "Portlet azioni"
 
 #. Default: "Add actions portlet"
-#: collective.portlet.actions/collective/portlet/actions/actionsportlet.py:184
+#: /Users/sbo/Documents/makina/projets/plonebru/cirb_plonebru_buildout/devel/collective.portlet.actions/collective/portlet/actions/actionsportlet.py:199
 msgid "heading_add_actions_portlet"
 msgstr "Aggiungi una portlet azioni"
 
 #. Default: "Select an action category"
-#: collective.portlet.actions/collective/portlet/actions/actionsportlet.py:37
+#: /Users/sbo/Documents/makina/projets/plonebru/cirb_plonebru_buildout/devel/collective.portlet.actions/collective/portlet/actions/actionsportlet.py:47
 msgid "help_actions_category"
 msgstr "Seleziona una categoria di azioni"
 
 #. Default: "An action portlet displays actions from a category"
-#: collective.portlet.actions/collective/portlet/actions/actionsportlet.py:186
+#: /Users/sbo/Documents/makina/projets/plonebru/cirb_plonebru_buildout/devel/collective.portlet.actions/collective/portlet/actions/actionsportlet.py:201
 msgid "help_add_actions_portlet"
 msgstr "Una portlet azioni visualizza le azioni di una specifica categoria."
 
 #. Default: "What icon we should use for actions with no specific icons. A 16*16 pixels image."
-#: collective.portlet.actions/collective/portlet/actions/actionsportlet.py:53
+#: /Users/sbo/Documents/makina/projets/plonebru/cirb_plonebru_buildout/devel/collective.portlet.actions/collective/portlet/actions/actionsportlet.py:63
 msgid "help_default_icon"
 msgstr "Indica un'icona di default per azioni che ne sono sprovviste. Una icona 16*16 pixel"
 
 #. Default: "Show icons or default icon for actions without icon."
-#: collective.portlet.actions/collective/portlet/actions/actionsportlet.py:45
+#: /Users/sbo/Documents/makina/projets/plonebru/cirb_plonebru_buildout/devel/collective.portlet.actions/collective/portlet/actions/actionsportlet.py:55
 msgid "help_show_icons"
 msgstr "Mostra le icone oppure quella di default se non presente"
 
+#. Default: "Show title of this portlet."
+#: /Users/sbo/Documents/makina/projets/plonebru/cirb_plonebru_buildout/devel/collective.portlet.actions/collective/portlet/actions/actionsportlet.py:39
+msgid "help_show_title"
+msgstr ""
+
 #. Default: "Displayed title of this portlet"
-#: collective.portlet.actions/collective/portlet/actions/actionsportlet.py:29
+#: /Users/sbo/Documents/makina/projets/plonebru/cirb_plonebru_buildout/devel/collective.portlet.actions/collective/portlet/actions/actionsportlet.py:31
 msgid "help_title"
 msgstr "Titolo che apparirà nella portlet"
 
 #. Default: "Actions category"
-#: collective.portlet.actions/collective/portlet/actions/actionsportlet.py:35
+#: /Users/sbo/Documents/makina/projets/plonebru/cirb_plonebru_buildout/devel/collective.portlet.actions/collective/portlet/actions/actionsportlet.py:45
 msgid "label_actions_category"
 msgstr "Categorie di azioni"
 
 #. Default: "Default icon"
-#: collective.portlet.actions/collective/portlet/actions/actionsportlet.py:51
+#: /Users/sbo/Documents/makina/projets/plonebru/cirb_plonebru_buildout/devel/collective.portlet.actions/collective/portlet/actions/actionsportlet.py:61
 msgid "label_default_icon"
 msgstr "Icona di default"
 
 #. Default: "Show icons"
-#: collective.portlet.actions/collective/portlet/actions/actionsportlet.py:43
+#: /Users/sbo/Documents/makina/projets/plonebru/cirb_plonebru_buildout/devel/collective.portlet.actions/collective/portlet/actions/actionsportlet.py:53
 msgid "label_show_icons"
 msgstr "Mostra le icone"
 
+#. Default: "Show title"
+#: /Users/sbo/Documents/makina/projets/plonebru/cirb_plonebru_buildout/devel/collective.portlet.actions/collective/portlet/actions/actionsportlet.py:37
+msgid "label_show_title"
+msgstr ""
+
 #. Default: "Portlet Title"
-#: collective.portlet.actions/collective/portlet/actions/actionsportlet.py:27
+#: /Users/sbo/Documents/makina/projets/plonebru/cirb_plonebru_buildout/devel/collective.portlet.actions/collective/portlet/actions/actionsportlet.py:29
 msgid "label_title"
 msgstr "Titolo della portlet"
 

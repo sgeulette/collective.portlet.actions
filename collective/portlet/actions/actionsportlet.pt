@@ -21,15 +21,22 @@
       tal:define="odd_class python:repeat['link'].even() and 'odd' or 'even';
                   first_class python:repeat['link'].start and 'first' or '';
                   last_class python:repeat['link'].end and 'last' or '';
-                  icon nocall:link/icon;
-                  icon_url icon/absolute_url;"
+                  icon nocall:link/icon"
       tal:attributes="class string:portletItem ${odd_class} ${first_class} ${last_class};">
     <a href="#"
        tal:attributes="href link/url;">
-      <span tal:content="link/title"
-            tal:attributes="style string:background-image:url(${icon_url});;">
+
+      <span tal:condition="python: icon is None"
+            tal:content="link/title">
         Action
       </span>
+
+      <span tal:condition="python: icon is not None"
+            tal:content="link/title"
+            tal:attributes="style string:background-image:url(${icon/absolute_url | icon});;">
+        Action
+      </span>
+
     </a>
   </dd>
   </tal:loop>

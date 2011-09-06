@@ -18,8 +18,12 @@
      description="A portlet that provides links of an action category"
      provides="Products.GenericSetup.interfaces.EXTENSION"
        />
-  
+
   <!-- Register the portlet -->
+
+  <include package="Products.CMFCore" file="permissions.zcml"
+           xmlns:zcml="http://namespaces.zope.org/zcml"
+           zcml:condition="have plone-41" />
 
   <plone:portlet
      name="collective.portlet.actions.ActionsPortlet"
