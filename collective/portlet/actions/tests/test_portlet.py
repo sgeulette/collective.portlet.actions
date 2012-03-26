@@ -161,7 +161,7 @@ class TestRenderer(TestCase):
 
         # now check the site_actions links
         # this was failing until the caching of actionLinks method was fixed
-        if int(migtool.getInstanceVersion()[0]) >= 3:
+        if int(migtool.getInstanceVersion()[0]) >= 4:
             self.assertEquals(len(links2), 3)
         else:
             self.assertEquals(len(links2), 4)

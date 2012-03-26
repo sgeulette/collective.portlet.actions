@@ -127,7 +127,12 @@ class Renderer(base.Renderer):
     def cachedLinks(self, actions_category, default_icon, show_icons):
         context_state = getMultiAdapter((aq_inner(self.context), self.request),
                                         name=u'plone_context_state')
-        actions = context_state.actions(actions_category)
+        HAS_PLONE4 = False
+        try:
+            actions = context_state.actions(actions_category)
+            HAS_PLONE4 = True
+        except TypeError:  # Plone < 4
+           actions = context_state.actions()
 
         # Finding method for icons
         if show_icons:
@@ -172,6 +177,8 @@ class Renderer(base.Renderer):
             if actions_category == 'object_buttons':
                 actions_tool = getMultiAdapter((aq_inner(self.context), self.context.request), name=u'plone_tools').actions()
                 actions = actions_tool.listActionInfos(object=aq_inner(self.context), categories=(actions_category,))
+            elif not HAS_PLONE4:
+                actions = actions.get(actions_category, [])
             for action in actions:
                 if not (action['available']
                         and action['visible']
