@@ -4,7 +4,7 @@ Changelog
 
 Please use following format for further changes (latest first):
 
-1.1.0-dev
+1.2.0 dev
 =========
 
 * Fix link's background image when "Show icons" is not checked
@@ -33,6 +33,12 @@ Please use following format for further changes (latest first):
 
 * Added italian translation
   [davidemoro]
+
+* Added MANIFEST.in
+  [tom_gross]
+
+* Fixed compatibility Plone 3.2 - 4.2
+  [tom_gross]
 
 1.1.0
 =====
