@@ -14,8 +14,7 @@ provide different links to various users or in various contexts.
 Requirements
 ============
 
-collective.portlet.actions requires Plone 3.x. It has been tested with Plone
-3.0, Plone 3.1 and Plone 3.2 and may or may not work with future Plone versions.
+collective.portlet.actions requires Plone 3.x or greater. It has been tested with Plone 3.2 and Plone 4.2. It should work with all versions in between and may or may not work with future Plone versions.
 
 Install
 =======
@@ -95,10 +94,10 @@ page at plone.org.
 
 * At Pypi: http://pypi.python.org/pypi/collective.portlet.actions
 
-Subversion repository
-=====================
+Code repository
+===============
 
-https://svn.plone.org/svn/collective/collective.portlet.actions
+https://github.com/tomgross/collective.portlet.actions
 
 Credits
 =======
