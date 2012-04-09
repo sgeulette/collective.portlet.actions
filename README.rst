@@ -97,7 +97,7 @@ page at plone.org.
 Code repository
 ===============
 
-https://github.com/tomgross/collective.portlet.actions
+https://github.com/collective/collective.portlet.actions
 
 Credits
 =======
