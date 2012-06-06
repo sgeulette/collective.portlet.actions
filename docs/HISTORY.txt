@@ -5,7 +5,9 @@ Changelog
 1.2.1 (unreleased)
 ==================
 
-- Nothing changed yet.
+- Fixed tales expression to work with Plone 4.2
+  https://bugs.launchpad.net/zope.tales/+bug/1002242
+  [tom_gross]
 
 
 1.2.0 (2012-03-26)

@@ -5,7 +5,6 @@
     ###############
     Actions portlet
     ###############
-    $Id$
   </tal:comment>
 
   <dt class="portletHeader" tal:condition="view/showTitle">
@@ -26,14 +25,15 @@
     <a href="#"
        tal:attributes="href link/url;">
 
-      <span tal:condition="python: icon is None"
+      <span tal:condition="not:icon"
             tal:content="link/title">
         Action
       </span>
 
-      <span tal:condition="python: icon is not None"
+      <span tal:condition="icon"
             tal:content="link/title"
-            tal:attributes="style string:background-image:url(${icon/absolute_url | icon});;">
+            tal:define="icon_url icon/absolute_url|icon"
+            tal:attributes="style string:background-image:url($icon_url);;">
         Action
       </span>
 
