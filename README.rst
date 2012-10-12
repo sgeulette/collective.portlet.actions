@@ -4,6 +4,8 @@ collective.portlet.actions
 
 By `Alter Way Solutions <http://www.alterway.fr>`_.
 
+.. image:: https://travis-ci.org/collective/collective.portlet.actions.png
+
 Show in a portlet of a Plone site the links and (maybe translated) titles of the
 actions of a selected category.
 
