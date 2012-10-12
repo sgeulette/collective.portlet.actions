@@ -1,11 +1,9 @@
 from setuptools import setup, find_packages
 import os
 
-version = open(os.path.join('collective', 'portlet', 'actions', 'version.txt')).read().strip()
-
 setup(
     name='collective.portlet.actions',
-    version=version,
+    version="1.2.1.dev0",
     description="A portlet that provides the links of an action category",
     long_description=(open("README.rst").read().strip() + "\n\n" +
                       open(os.path.join("docs", "HISTORY.txt")).read().strip()),
