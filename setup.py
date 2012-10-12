@@ -31,7 +31,16 @@ setup(
     install_requires=[
     'setuptools',
     # -*- Extra requirements: -*-
+    'Acquisition',
+    'Products.CMFCore',
+    'Zope2',
+    'plone.app.portlets',
+    'plone.memoize',
+    'plone.portlets',
+    'zope.formlib',
+    'zope.schema',
     ],
+    extras_require={'test': ['Products.PloneTestCase']},
     entry_points="""
     # -*- Entry points: -*-
     [z3c.autoinclude.plugin]
