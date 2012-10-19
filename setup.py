@@ -3,7 +3,7 @@ import os
 
 setup(
     name='collective.portlet.actions',
-    version='1.2.2.dev0',
+    version='1.2.2',
     description="A portlet that provides the links of an action category",
     long_description=(open("README.rst").read().strip() + "\n\n" +
                       open(os.path.join("docs", "HISTORY.txt")).read().strip()),
