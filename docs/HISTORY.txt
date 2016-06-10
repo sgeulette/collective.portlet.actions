@@ -2,7 +2,7 @@
 Changelog
 =========
 
-1.2.3 (unreleased)
+1.2.3 (2016-06-10)
 ==================
 
 - Add note about inclusion of this product in Plone 4.3
