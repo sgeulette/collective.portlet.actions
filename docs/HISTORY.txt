@@ -5,7 +5,8 @@ Changelog
 1.2.4 (unreleased)
 ==================
 
-- Nothing changed yet.
+- Pin buildout to latest Plone 4.2
+  [tomgross]
 
 
 1.2.3 (2016-06-10)
