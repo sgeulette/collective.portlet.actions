@@ -16,7 +16,10 @@ provide different links to various users or in various contexts.
 Requirements
 ============
 
-collective.portlet.actions requires Plone 3.x or greater. It has been tested with Plone 3.2 and Plone 4.2. It should work with all versions in between and may or may not work with future Plone versions.
+collective.portlet.actions requires Plone 3.2 or greater.
+
+**With Plone 4.3 this product is obsolete. An action portlet is included in core
+itself with plone.app.portlets >= 2.5.0**
 
 Install
 =======

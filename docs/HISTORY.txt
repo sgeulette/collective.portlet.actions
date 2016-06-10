@@ -5,7 +5,8 @@ Changelog
 1.2.3 (unreleased)
 ==================
 
-- Nothing changed yet.
+- Add note about inclusion of this product in Plone 4.3
+  [tomgross]
 
 
 1.2.2 (2012-10-19)
