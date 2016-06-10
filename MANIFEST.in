@@ -1,4 +1,7 @@
+recursive-include collective *
+recursive-include docs *.GPL
 include docs/*.txt
 include *.rst
 include *.cfg
-recursive-include collective *
+include *.py
+global-exclude *.pyc
