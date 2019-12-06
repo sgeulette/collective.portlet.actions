@@ -16,10 +16,10 @@ provide different links to various users or in various contexts.
 Requirements
 ============
 
-collective.portlet.actions requires Plone 3.2 or greater.
+collective.portlet.actions requires Plone 4.3
 
-**With Plone 4.3 this product is obsolete. An action portlet is included in core
-itself with plone.app.portlets >= 2.5.0**
+**With Plone 5 this product is obsolete. An action portlet is included in core
+itself with plone.app.portlets >= 3.0**
 
 Install
 =======
@@ -37,12 +37,6 @@ to add these lines in your zc.buildout config file: ::
     ...
     collective.portlet.actions
     ...
-  zcml =
-    ...
-    collective.portlet.actions
-
-As of Plone 3.2, you don't need to add ``collective.portlet.actions`` to the
-``zcml`` option.
 
 Then re-run your buildout config.
 

@@ -7,6 +7,8 @@
    xmlns:plone="http://namespaces.plone.org/plone"
    i18n_domain="collective.portlet.actions">
 
+  <include package="plone.app.portlets" />
+
   <five:registerPackage package="." initialize=".initialize" />
 
   <i18n:registerTranslations directory="locales"/>
@@ -21,25 +23,14 @@
 
   <!-- Register the portlet -->
 
-  <include package="Products.CMFCore" file="permissions.zcml"
-           xmlns:zcml="http://namespaces.zope.org/zcml"
-           zcml:condition="have plone-41" />
-
-  <plone:portlet
-     name="collective.portlet.actions.ActionsPortlet"
-     interface=".actionsportlet.IActionsPortlet"
-     assignment=".actionsportlet.Assignment"
-     view_permission="zope2.View"
-     edit_permission="cmf.ManagePortal"
-     renderer=".actionsportlet.Renderer"
-     addview=".actionsportlet.AddForm"
-     editview=".actionsportlet.EditForm"
-     />
-
-  <utility
-     component=".actionsportlet.ActionCategoriesVocabularyFactory"
-     name="Modulo.vocabularies.actioncategories"
-     />
+    <plone:portlet
+       name="portlets.Actions"
+       interface=".actionsportlet.IActionsPortlet"
+       assignment=".actionsportlet.Assignment"
+       renderer=".actionsportlet.Renderer"
+       addview=".actionsportlet.AddForm"
+       editview=".actionsportlet.EditForm"
+       />
 
   <!-- Resources -->
 

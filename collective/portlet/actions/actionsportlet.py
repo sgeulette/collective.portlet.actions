@@ -1,25 +1,17 @@
 # -*- coding: utf-8 -*-
-# $Id$
 """Actions portlet"""
 
 from Acquisition import aq_inner
 from zope.interface import implements
 from zope import schema
 from zope.formlib import form
-#from zope.app.schema.vocabulary import IVocabularyFactory
-from zope.schema.interfaces import IVocabularyFactory
-
-from zope.schema.vocabulary import SimpleVocabulary
-from zope.schema.vocabulary import SimpleTerm
 from zope.component import getMultiAdapter
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-from Products.CMFCore.utils import getToolByName
 from plone.portlets.interfaces import IPortletDataProvider
 from plone.app.portlets.portlets import base
 from plone.memoize import view as pm_view
 
-
-from collective.portlet.actions import ActionsPortletMessageFactory as _
+from plone.app.portlets import PloneMessageFactory as _
 
 
 class IActionsPortlet(IPortletDataProvider):
@@ -47,7 +39,7 @@ class IActionsPortlet(IPortletDataProvider):
         description=_(u'help_actions_category',
                       default=u"Select an action category"),
         required=True,
-        vocabulary='Modulo.vocabularies.actioncategories')
+        vocabulary='plone.app.vocabularies.Actions')
 
     show_icons = schema.Bool(
         title=_(u'label_show_icons',
@@ -106,7 +98,6 @@ class Renderer(base.Renderer):
         """Override base class"""
         return bool(self.actionLinks())
 
-
     @property
     def title(self):
         """Portlet title"""
@@ -132,50 +123,51 @@ class Renderer(base.Renderer):
             actions = context_state.actions(actions_category)
             HAS_PLONE4 = True
         except TypeError:  # Plone < 4
-           actions = context_state.actions()
+            actions = context_state.actions()
 
         # Finding method for icons
-        if show_icons:
-            portal_actionicons = getToolByName(self.context, 'portal_actionicons')
-            def render_icon(category, action, default):
-                if action.has_key('icon') and action['icon']:
-                    # We have an icon *in* this action
-                    return action['icon']
-                # Otherwise we look for an icon in portal_actionicons
-                if category != 'object_buttons':
-                    return portal_actionicons.renderActionIcon(category, action['id'], default)
-                else:
-                    # object_buttons
-                    plone_utils = getToolByName(self.context, 'plone_utils')
-                    return plone_utils.getIconFor(category, action['id'], default)
-        else:
-            def render_icon(category, action_id, default):
-                # We don't show icons whatever
-                return None
+#        if show_icons:
+#            portal_actionicons = getToolByName(self.context, 'portal_actionicons')
+#            def render_icon(category, action, default):
+#                if action.has_key('icon') and action['icon']:
+#                    # We have an icon *in* this action
+#                    return action['icon']
+#                # Otherwise we look for an icon in portal_actionicons
+#                if category != 'object_buttons':
+#                    return portal_actionicons.renderActionIcon(category, action['id'], default)
+#                else:
+#                    # object_buttons
+#                    plone_utils = getToolByName(self.context, 'plone_utils')
+#                    return plone_utils.getIconFor(category, action['id'], default)
+#        else:
+        def render_icon(category, action_id, default):
+            # We don't show icons whatever
+            return None
 
         # Building the result as list of dicts
         result = []
 
-        if actions_category=="portal_tabs":
+        if actions_category == "portal_tabs":
             # Special case for portal_tabs (we rely on content in Plone root)
             portal_tabs_view = getMultiAdapter(
                 (self.context, self.context.REQUEST), name='portal_tabs_view')
             actions = portal_tabs_view.topLevelTabs(actions=actions)
             for action in actions:
                 link = {
-                    'id':action['id'],
+                    'id': action['id'],
                     'url': action['url'],
                     'title': action['name'],
                     'icon': render_icon(
                         actions_category,
                         action,
                         default=default_icon)
-                    }
+                }
                 result.append(link)
 
         else:
             if actions_category == 'object_buttons':
-                actions_tool = getMultiAdapter((aq_inner(self.context), self.context.request), name=u'plone_tools').actions()
+                actions_tool = getMultiAdapter((aq_inner(self.context), self.context.request),
+                                               name=u'plone_tools').actions()
                 actions = actions_tool.listActionInfos(object=aq_inner(self.context), categories=(actions_category,))
             elif not HAS_PLONE4:
                 actions = actions.get(actions_category, [])
@@ -186,14 +178,14 @@ class Renderer(base.Renderer):
                         and action['url']):
                     continue
                 link = {
-                    'id':action['id'],                  
+                    'id': action['id'],
                     'url': action['url'],
                     'title': action['title'],
                     'icon': render_icon(
                         actions_category,
                         action,
                         default=default_icon)
-                    }
+                }
                 result.append(link)
         return result
 
@@ -207,8 +199,8 @@ class AddForm(base.AddForm):
     form_fields = form.Fields(IActionsPortlet)
     label = _(u'heading_add_actions_portlet',
               default=u'Add actions portlet')
-    description= _(u'help_add_actions_portlet',
-                   default=u'An action portlet displays actions from a category')
+    description = _(u'help_add_actions_portlet',
+                    default=u'An action portlet displays actions from a category')
 
     def create(self, data):
         return Assignment(**data)
@@ -221,20 +213,3 @@ class EditForm(base.EditForm):
     zope.formlib which fields to display.
     """
     form_fields = form.Fields(IActionsPortlet)
-
-
-class ActionCategoriesVocabulary(object):
-    """Provides an actions categories vocabulary"""
-
-    implements(IVocabularyFactory)
-
-    def __call__(self, context):
-        portal_actions = getToolByName(context, 'portal_actions')
-
-        # Building the list of action categories
-        categories = portal_actions.listFilteredActionsFor(context).keys()
-        categories.sort()
-        return SimpleVocabulary([SimpleTerm(cat, title=cat) for cat in categories])
-
-
-ActionCategoriesVocabularyFactory = ActionCategoriesVocabulary()
