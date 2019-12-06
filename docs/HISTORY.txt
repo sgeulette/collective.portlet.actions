@@ -2,11 +2,13 @@
 Changelog
 =========
 
-1.2.4 (unreleased)
+1.3.0 (unreleased)
 ==================
 
-- Nothing changed yet.
-
+- Plone 4.3 version only,
+  based on https://github.com/plone/plone.app.portlets/commit/082ad8540748c6730b3d2fe613d9428bd5d782f8.
+  plone.app.portlets 2.5 branch doesn't contain actions portlet.
+  [sgeulette]
 
 1.2.3.post1 (2016-06-10)
 ========================
@@ -100,4 +102,3 @@ Changelog
 =====
 
 Initial release
-
